@@ -4,6 +4,3 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 
 run BookmarkManager
-
-Link.all
-Tag = [tag, tag, tag, tag]
