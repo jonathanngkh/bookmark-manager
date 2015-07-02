@@ -9,5 +9,8 @@ feature 'User sign up' do
   def sign_up(email: 'alice@example.com', password: 'oranges!')
     visit '/users/new'
     expect(page.status_code).to eq(200)
+    fill_in :email, with: email # doesn't matter if email is a string or symbol?
+    fill_in :password, with: password
+    click_button 'Sign up'
   end
 end

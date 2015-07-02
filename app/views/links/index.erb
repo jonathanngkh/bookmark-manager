@@ -1,0 +1,12 @@
+<h1> Links, bitch </h1>
+
+<h2>
+  <ul id='links'>
+    <% @links.each do |link| %>
+      <li>
+        Title: <%= link.title %>
+        URL: <%= link.url %>
+      </li>
+    <% end %>
+  </ul>
+</h2>
