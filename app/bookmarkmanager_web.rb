@@ -54,9 +54,14 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/users' do
-    user = User.create(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect to('/links')
+    if params[:password] == params[:password_confirmation]
+      user = User.create(email: params[:email], password: params[:password])
+      session[:user_id] = user.id
+      redirect to('/links')
+    else
+      redirect to('/users/new')
+      "Your password and confirmation password do not match"
+    end
   end
 
   helpers do
